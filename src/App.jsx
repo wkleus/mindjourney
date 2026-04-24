@@ -6,10 +6,12 @@ import Register from "./pages/Register";
 import Account from "./pages/Account";
 import Settings from "./pages/Settings";
 import SelectedCourses from "./pages/SelectedCourses";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/account" element={<Account />} />
