@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { MagnifyingGlassIcon } from "@heroicons-animated/react";
-import Main from "../pages/Main";
 
 const Header = () => {
   return (
