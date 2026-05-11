@@ -27,22 +27,21 @@ const ProfileSchema = new mongoose.Schema(
   { timestamps: true }, // adds createdAt and updatedAt
 );
 
-// hash password if modified
-ProfileSchema.pre("save", async function (next) {
+// hash password if modified --> TODO: modify this later!
+ProfileSchema.pre("save", async function () {
   if (this.isModified("passwordHash")) {
     this.passwordHash = await bcrypt.hash(this.passwordHash, 10);
   }
-  next();
 });
 
-// compare plain password with hash
+// compare plain password with hash --> TODO: modify this later!
 ProfileSchema.methods.comparePassword = async function (plainPassword) {
   return bcrypt.compare(plainPassword, this.passwordHash);
 };
 
-// index for faster email & username lookups
-ProfileSchema.index({ username: 1 });
-ProfileSchema.index({ emailAddress: 1 });
+// index for faster email & username lookups --> TODO: modify this later!
+// ProfileSchema.index({ username: 1 });
+// ProfileSchema.index({ emailAddress: 1 });
 
 const Profile = mongoose.model("Profile", ProfileSchema);
 
